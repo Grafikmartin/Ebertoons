@@ -1,0 +1,448 @@
+/* Grundlegende Reset-Regeln */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Fredoka', sans-serif;
+  --s: 100px;
+  --c1: #080033;
+  --c2: #0f123d;
+  --_g: var(--c2) 6% 14%, var(--c1) 16% 24%, var(--c2) 26% 34%,
+    var(--c1) 36% 44%, var(--c2) 46% 54%, var(--c1) 56% 64%, var(--c2) 66% 74%,
+    var(--c1) 76% 84%, var(--c2) 86% 94%;
+  background: radial-gradient(100% 100% at 100% 0,
+      var(--c1) 4%,
+      var(--_g),
+      #0008 96%,
+      #0000),
+    radial-gradient(100% 100% at 0 100%,
+      #0000,
+      #0008 4%,
+      var(--_g),
+      var(--c1) 96%) var(--c1);
+  background-size: var(--s) var(--s);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.fullscreen-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.fullscreen-icon:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.material-icons {
+  color: white;
+  font-size: 32px;
+}
+
+header {
+  width: 100%;
+  min-height: 300px;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-icon {
+  width: 180px;
+  height: 180px;
+  margin-top: 60px;
+  margin-bottom: -60px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
+}
+
+header h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 6em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+header h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2em;
+  margin-top: -55px;
+  margin-bottom: 100px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+main {
+  width: 100%;
+  flex: 1;
+}
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+  width: 100%;
+}
+
+#load-more-btn {
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(9, 10, 53, 0.6) !important;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Fredoka', sans-serif;
+}
+
+#load-more-btn:hover {
+  background-color:  rgba(9, 10, 53, 0.6) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8)!important;
+}
+
+#load-more-btn:focus {
+  outline: none;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3em;
+  padding: 3em;
+  width: 100%;
+  box-sizing: border-box;
+  grid-auto-rows: minmax(min-content, max-content);
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Fügen Sie diese Zeile hinzu */
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border: .5em solid #ffffff;
+  transition: all 0.3s ease;
+  height: 100%;
+  cursor: pointer;
+}
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 300px;
+}
+
+.gallery-item p {
+  margin: 0;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Lightbox-Stil */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+.lightbox .info {
+  color: white;
+  text-align: center;
+}
+
+.lightbox .nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.lightbox .nav-buttons button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  font-size: 5em !important;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+.material-icons {
+  color: rgb(255, 255, 255);
+  user-select: none;
+  font-size: 80px;
+}
+
+.lightbox .nav-buttons button span.material-icons {
+  font-size: 8vh !important;
+  width: 12vh !important;
+  height: 12vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cssbuttons-io-button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  margin: 2em auto;
+  transition: all 0.3s ease;
+}
+
+.cssbuttons-io-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.55);
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: relative;
+  border-radius: 50%;
+  padding: 0.5em;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cssbuttons-io-button .icon svg {
+  color: rgba(0, 0, 0, 1);
+  width: 30px;
+  height: 30px;
+}
+
+.cssbuttons-io-button:active {
+  transform: scale(0.95);
+}
+
+
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  position: relative;
+  width: 300px;
+}
+
+.filter-dropdown {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(12, 9, 37, 0.6);
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.filter-dropdown option {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.category-count {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+
+
+
+
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 2em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer h3 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+footer p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+#cartoon-counter {
+  margin: 25px auto 0 auto; /* zentriert */
+  width: fit-content; /* nur so breit wie nötig */
+  background: rgba(255, 255, 255, 0.00);
+  color: #686868;
+  padding: 0.5em 1em;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .gallery {
+    padding: 1.5em;
+    gap: 1.5em;
+  }
+}
+/* Füge diese Media Queries zu deinem CSS hinzu oder aktualisiere die bestehenden */
+
+@media only screen and (max-width: 768px) {
+  .lightbox .nav-buttons {
+    /* Buttons nach unten verschieben */
+    top: auto;
+    bottom: 20%;
+    transform: none;
+  }
+
+  .lightbox .nav-buttons button span.material-icons {
+    /* Buttons kleiner machen */
+    font-size: 5vh !important;
+    width: 8vh !important;
+    height: 8vh !important;
+  }
+
+  .lightbox img {
+    /* Mehr Platz für die Buttons */
+    max-height: 70%;
+    margin-bottom: 2em;
+  }
+}
+
+/* Noch kleinere Geräte */
+@media only screen and (max-width: 480px) {
+  .lightbox .nav-buttons button span.material-icons {
+    /* Noch kleiner für sehr kleine Geräte */
+    font-size: 4vh !important;
+    width: 6vh !important;
+    height: 6vh !important;
+  }
+
+  .lightbox .nav-buttons {
+    bottom: 5%;
+  }
+
+  .lightbox img {
+    max-height: 60%;
+  }
+}
+/* Modify the mobile header styles to fix z-index and positioning */
+@media screen and (max-width: 480px) {
+  header.container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    min-height: auto;
+    position: relative; /* Create stacking context */
+  }
+
+  .header-icon {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    z-index: 10; /* Much higher z-index */
+    position: relative; /* Ensure positioning context */
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    margin: 5px 0;
+    z-index: 5; /* Lower z-index than logo */
+    position: relative; /* Ensure positioning context */
+    margin-top: 35px;
+  }
+
+  header h2 {
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    z-index: 5; /* Lower z-index than logo */
+    position: relative; /* Ensure positioning context */
+    margin-top: 0;
+  }
+}

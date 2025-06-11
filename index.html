@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ebertoons</title>
+    <link rel="icon" type="image/png" sizes="34x34" href="./assets/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    
+  </head>
+<body>
+  <div id="fullscreenToggle" class="fullscreen-icon">
+    <span class="material-icons" id="fullscreenIcon">fullscreen</span>
+  </div>
+  
+  <header class="container">
+    <div class="header-logo-container">
+      <img src="./assets/Iconsmind-Outline-Laughing.256.png" alt="Lachen Icon" class="header-icon">
+    </div>
+    <div class="header-text-container">
+        <h1>Die Eber-Hard-Lacher</h1>
+
+      <h2>Humor auf Knopfdruck</h2>
+    </div>
+  </header>
+
+  <div class="filter-container">
+    <select class="filter-dropdown" id="categoryFilter">
+      <option value="all">Alle Kategorien</option>
+    </select>
+  </div>
+
+  <main>
+    <section class="gallery" id="gallery">
+      <!-- Dynamisch eingefügte Cartoons -->
+    </section>
+    <div class="load-more-container">
+      <button id="load-more-btn">Mehr Cartoons laden</button>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <div class="nav-buttons">
+      <button id="prev"><span class="material-icons">arrow_left</span></button>
+      <button id="next"><span class="material-icons">arrow_right</span></button>
+    </div>
+    <span class="close" id="close"><span class="material-icons">close</span></span>
+    
+    <img id="lightbox-img" src="" alt="">
+    <div class="info">
+      <h2 id="lightbox-title"></h2>
+      <p id="lightbox-description"></p>
+    </div>
+  </div>
+  
+  <footer>
+    <h3>Betreten auf eigene Gefahr!</h3>
+    <p>Zusammengetragen wurde das Ganze mit viel Liebe (und übermäßigem Koffeinkonsum) von Martin Borth.
+      Die eigentlichen Meisterwerke gehören natürlich ihren grandiosen Schöpfern. <br>
+    Ein besonderer Dank gilt meinen heldenhaften Freunden, die mir geholfen haben, die Cartoons zusammenzutragen.</p>
+    <div id="cartoon-counter">0 Cartoons angezeigt</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
