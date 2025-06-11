@@ -1,3 +1,34 @@
+:root {
+  /* 🎨 Hintergrund-Design */
+  --blob-color: #0f0;
+  --blob-core: #000;
+  --blob-glow: blur(7em) brightness(5);
+  --bg-grid-color: hsl(0 0% 4%);
+
+  /* 🌈 UI-Farben */
+  --text-color: white;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border-hover: rgba(255, 255, 255, 0.5);
+  --card-bg: rgba(255, 0, 157, 0.4);
+  --card-bg-hover: rgba(255, 0, 157, 0.7);
+  --card-bg-active: rgba(255, 0, 157, 0.9);
+  
+  --btn-bg: #247a6c;
+  --btn-bg-disabled: rgba(10, 63, 41, 0.2);
+  --btn-border: rgba(255, 255, 255, 0.1);
+  --btn-border-hover: rgba(255, 255, 255, 0.5);
+
+  --answer-bg: rgba(109, 8, 104, 0.5);
+  --answer-bg-hover: rgba(109, 8, 104, 0.7);
+
+  --input-border: #cbd5e1;
+  --select-border: #ccc;
+
+  /* 🧠 Container-Styling */
+  --container-bg: rgba(66, 85, 63, 0.5);
+  --container-shadow: rgba(0, 0, 0, 0.2);
+}
+
 /* Grundlegende Reset-Regeln */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -444,5 +475,89 @@ footer p {
     z-index: 5; /* Lower z-index than logo */
     position: relative; /* Ensure positioning context */
     margin-top: 0;
+  }
+}
+
+.quiz-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    #0000 0,
+    #0000 2px,
+    var(--bg-grid-color) 2px
+  );
+  background-size: 8px 8px;
+}
+
+.quiz-bg::after {
+  display: none;
+}
+
+.quiz-bg::before {
+  content: "";
+  position: absolute;
+  inset: -8em;
+  z-index: -1;
+  --f: var(--blob-glow);
+  animation:
+    blobs-1e28bd3d 450s linear infinite,
+    thingy 40s linear infinite;
+  background-color: var(--blob-core);
+  background-image: radial-gradient(ellipse 66px 50px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 77px 60px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 78px 100px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 73px 96px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 76px 77px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 66px 51px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 90px 57px at 50% 50%, var(--blob-color) 0%, transparent 100%),
+                    radial-gradient(ellipse 89px 93px at 50% 50%, var(--blob-color) 0%, transparent 100%);
+  background-size:
+    726px 576px,
+    1242px 454px,
+    876px 1160px,
+    691px 873px,
+    914px 550px,
+    1159px 340px,
+    1017px 831px,
+    313px 977px;
+}
+
+@keyframes blobs-1e28bd3d {
+  0% {
+    background-position:
+      271px 478px,
+      62px 291px,
+      67px 861px,
+      553px 413px,
+      36px 392px,
+      1077px 226px,
+      400px 799px,
+      7px 264px;
+  }
+
+  to {
+    background-position:
+      -14975px -2978px,
+      31112px 11187px,
+      -20081px 8981px,
+      11609px -3952px,
+      -12760px 12492px,
+      -9354px 2946px,
+      9553px 21574px,
+      946px 9057px;
+  }
+}
+
+@keyframes thingy {
+  0% {
+    filter: var(--f) hue-rotate(0deg);
+  }
+  to {
+    filter: var(--f) hue-rotate(1turn);
   }
 }
