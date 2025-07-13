@@ -25,6 +25,17 @@ const categories = {
   "Essen & Trinken": [],
 };
 const presetCartoons = [
+   {
+    title: "Konstruktive Kritikpunkte",
+    src: "cartoons/Kritik.webp",
+    description: "",
+    categories: ["Gesellschaft & Politik", "Zukunftsängste", "Höllisch gut", "Sinnkrisen & Donuts"],
+  },  {
+    title: "Upgrade",
+    src: "cartoons/Upgrade.webp",
+    description: "",
+    categories: ["Beruf & Arbeit", "Gesundheit & Körper"],
+  },
   {
     title: "",
     src: "cartoons/ki.webp",
