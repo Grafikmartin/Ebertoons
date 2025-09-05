@@ -25,12 +25,49 @@ const categories = {
   "Essen & Trinken": [],
 };
 const presetCartoons = [
-   {
+  {
+    title: "Beitrag zur Energiewende",
+    src: "cartoons/balkonkraftwerk.webp",
+    description: "",
+    categories: ["Umwelt & Klima", "Sinnkrisen & Donuts"],
+  },
+  {
+    title: "Moderne Finanzierung",
+    src: "cartoons/Reform.webp",
+    description: "",
+    categories: ["Gesellschaft & Politik", "Wirtschaft & Konsum"],
+  },
+  {
+    title: "Wenn Frauen Männer wären",
+    src: "cartoons/Rollentausch.webp",
+    description: "",
+    categories: ["Zwischenmenschliches", "Randale & Romantik"],
+  },
+  {
+    title: "Moderne Logistik",
+    src: "cartoons/Training.webp",
+    description: "",
+    categories: ["Beruf & Arbeit"],
+  },
+  {
+    title: "Nervenbahnen",
+    src: "cartoons/Nervenbahnen.webp",
+    description: "",
+    categories: ["Zwischenmenschliches", "Randale & Romantik"],
+  },
+  {
+    title: "Bürokratie",
+    src: "cartoons/baugenehmigung.webp",
+    description: "",
+    categories: ["Beruf & Arbeit"],
+  },
+  {
     title: "Konstruktive Kritikpunkte",
     src: "cartoons/Kritik.webp",
     description: "",
     categories: ["Gesellschaft & Politik", "Zukunftsängste", "Höllisch gut", "Sinnkrisen & Donuts"],
-  },  {
+  },
+  {
     title: "Upgrade",
     src: "cartoons/Upgrade.webp",
     description: "",
@@ -41,7 +78,7 @@ const presetCartoons = [
     src: "cartoons/ki.webp",
     description: "",
     categories: ["Beruf & Arbeit",],
-  }, 
+  },
   {
     title: "Neue Ansage!",
     src: "cartoons/NeueAnsage.webp",
